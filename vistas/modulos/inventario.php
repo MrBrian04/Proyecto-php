@@ -17,7 +17,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="producto" name="registroNombre">
+                            <input type="text" class="form-control" id="producto" name="inventarioProducto">
             
                         </div>
                         
@@ -34,7 +34,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="cantidad" name="registroCantidad">
+                            <input type="text" class="form-control" id="cantidad" name="inventarioCantidad">
             
                         </div>
                         
@@ -52,13 +52,31 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="precio" name="registroPrecio">
+                            <input type="text" class="form-control" id="precio" name="inventarioPrecio">
                         
                         </div>
                         
                     </div>
+
+                    <?php
+                    
+                    /*=============================================
+                    FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
+                    =============================================*/
+
+                    $Inventario = ControladorInventario::ctrInventario();
+
+                    if ($Inventario === 'ok') {
+                        // Aquí sí entra cuando el método devuelve "ok"
+                        echo '<script>
+                            if (window.history.replaceState) {
+                                window.history.replaceState(null, null, window.location.href);
+                            }
+                        </script>';
+                        echo '<div class="alert alert-success">El producto ha sido registrado</div>';
+                    }
+                    ?>
             
-           
                 
                     <button type="submit" class="btn btn-primary">Guardar</button>
             

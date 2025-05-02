@@ -15,7 +15,7 @@
                     <a href="index.php?modulo=inventario" class="nav-link">Inventario</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Salir</a>
+                    <a href="index.php?modulo=salir" class="nav-link">Salir</a>
                 </li>
             </ul>
         </nav>       
