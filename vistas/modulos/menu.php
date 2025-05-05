@@ -14,6 +14,8 @@
                 <li class="nav-item">
                     <a href="index.php?modulo=inventario" class="nav-link">Inventario</a>
                 </li>
+                <a href="index.php?modulo=rol" class="nav-link">Rol</a>
+                </li>
                 <li class="nav-item">
                     <a href="index.php?modulo=salir" class="nav-link">Salir</a>
                 </li>
