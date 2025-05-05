@@ -4,14 +4,14 @@ class ControladorInventario{
     
     static public function ctrInventario(){
 
-        if(isset($_POST["inventarioProducto"])){
+        if(isset($_POST["nombreProducto"])){
 
             $tabla = "inventario";
 
             $datos = array(
-                "inve_nombre_producto" => $_POST["inventarioProducto"],
-                "inve_cantidad_producto" => $_POST["inventarioCantidad"],
-                "inve_precio_producto" => $_POST["inventarioPrecio"],            
+                "nombreProducto" => $_POST["nombreProducto"],
+                "cantidadProducto" => $_POST["cantidadProducto"],
+                "precioProducto" => $_POST["precioProducto"],            
 
             );
 

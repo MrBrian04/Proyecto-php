@@ -17,7 +17,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="producto" name="inventarioProducto">
+                            <input type="text" class="form-control" id="producto" name="nombreProducto">
             
                         </div>
                         
@@ -34,7 +34,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="cantidad" name="inventarioCantidad">
+                            <input type="text" class="form-control" id="cantidad" name="cantidadProducto">
             
                         </div>
                         
@@ -52,7 +52,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="precio" name="inventarioPrecio">
+                            <input type="text" class="form-control" id="precio" name="precioProducto">
                         
                         </div>
                         
