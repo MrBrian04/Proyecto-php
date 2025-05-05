@@ -21,7 +21,7 @@
                     /*=============================================
                     FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
                     =============================================*/
-                    $Inventario = ControladorInventario::ctrInventario();
+                    $Inventario = ControladorRol::ctrRol();
                     if ($Inventario === 'ok') {
                         // Aquí sí entra cuando el método devuelve "ok"
                         echo '<script>

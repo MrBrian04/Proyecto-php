@@ -4,15 +4,12 @@ class ControladorRol{
     
     static public function ctrRol(){
 
-        if(isset($_POST["nombreProducto"])){
+        if(isset($_POST["tipoRol"])){
 
-            $tabla = "inventario";
+            $tabla = "rol";
 
             $datos = array(
-                "nombreProducto" => $_POST["nombreProducto"],
-                "cantidadProducto" => $_POST["cantidadProducto"],
-                "precioProducto" => $_POST["precioProducto"],            
-
+                "tipoRol" => $_POST["tipoRol"]
             );
 
             $respuesta = ModeloRol::mdlRol($tabla, $datos);
