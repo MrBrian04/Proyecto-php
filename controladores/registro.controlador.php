@@ -40,7 +40,7 @@ class ControladorRegistro{
             $respuesta = ModeloRegistro::mdlSeleccionarRegistro($tabla, $item, $valor);
 
             if($respuesta["pers_correo"] == $_POST["registroNombre"] && $respuesta["pers_clave"] == $_POST["registroPassword"]){ 
-
+                session_start();
                 $_SESSION["validarIngreso"] = "ok";
 
                 echo '<script>
@@ -71,7 +71,18 @@ class ControladorRegistro{
 
     }
 
-    
+        /*=============================================
+    Seleccionar Registros
+    =============================================*/
+
+    static public function ctrSeleccionarRegistro(){
+
+        $tabla = "personas";
+
+        $respuesta = ModeloRegistro::mdlSeleccionarRegistro($tabla, null,null);
+
+        return $respuesta;
+    }
         
 }
 
