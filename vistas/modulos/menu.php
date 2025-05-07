@@ -62,6 +62,20 @@
 
                         <?php endif ?>
 
+                        <?php if ($_GET["modulo"] == "rol"): ?>
+
+                        <li class="nav-item">
+                        <a href="index.php?modulo=salir" class="nav-link active">Rol</a>
+                        </li>
+
+                        <?php else: ?>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="index.php?modulo=rol">Rol</a>
+                        </li>
+
+                        <?php endif ?>
+
                         <?php if ($_GET["modulo"] == "salir"): ?>
 
                             <li class="nav-item">
