@@ -1,19 +1,19 @@
 <?php
 
-require_once 'conexion.php'; 
+require_once "conexion.php";
 
-class ModeloInventario {
+class ModeloInventario{
 
     /*=============================================
-    Registrar usuario
+    Registrar Producto
     =============================================*/
     static public function mdlInventario($tabla, $datos){
         
-        $sql = "INSERT INTO {$tabla} (inve_nombre_producto, inve_cantidad_producto, inve_precio_producto) VALUES (:producto, :cantidad, :precio)";
+        $sql = "INSERT INTO {$tabla} (inve_nombre_producto, inve_cantidad_producto, inve_precio_producto) VALUES (:nombre, :cantidad, :precio)";
 
         $stmt = Conexion::conectar()->prepare($sql);
 
-        $stmt->bindParam(":producto",   $datos["nombreProducto"],   PDO::PARAM_STR);
+        $stmt->bindParam(":nombre",   $datos["nombreProducto"],   PDO::PARAM_STR);
         $stmt->bindParam(":cantidad", $datos["cantidadProducto"], PDO::PARAM_INT);
         $stmt->bindParam(":precio",   $datos["precioProducto"],   PDO::PARAM_STR);
 

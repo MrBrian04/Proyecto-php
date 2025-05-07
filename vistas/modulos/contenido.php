@@ -1,5 +1,7 @@
+
 <?php
-session_start();
+  session_start();
+
     if (!isset($_SESSION["validarIngreso"]) || $_SESSION["validarIngreso"] !== "ok") {
         header("Location: index.php?modulo=ingreso");
         exit;
@@ -17,7 +19,7 @@ $registros = ControladorRegistro::ctrSeleccionarRegistro();
                         <th>Telefono</th>
                         <th>Email</th>
                         <th>Contraseña</th>
-                        <th>Accion</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,7 +66,7 @@ $registros = ControladorRegistro::ctrSeleccionarRegistro();
                         </td>
                     </tr>
                 <?php endif; ?>
-            </tbody>
+                </tbody>
             </table>
         </div>
 

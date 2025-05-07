@@ -16,7 +16,7 @@
                                     <i class="fas fa-user"></i>
                                 </span>
                             </div>
-
+            
                             <input type="text" class="form-control" id="nombre" name="registroNombre">
             
                         </div>

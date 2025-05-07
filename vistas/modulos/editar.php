@@ -1,8 +1,7 @@
-
 <div class="container-fluid">
 		
 	<div class="container py-5">
-<h1>Actualizar</h1>
+      <h1>Actualizar</h1>
         <div class="d-flex justify-content-center text-center py-3">
 
             <form class="p-5 bg-light" method="post">

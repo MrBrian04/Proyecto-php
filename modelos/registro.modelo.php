@@ -23,16 +23,13 @@ class ModeloRegistro {
         return $ok ? "ok" : "error";
     }
 
-    
-    /*=============================================
-    Seleccionar Registros
-    =============================================*/
     static public function mdlSeleccionarRegistro($tabla, $item, $valor){
+
 
         if ($item === null && $valor === null) {
 
-            // Trae todos los registros, aliasando la PK a 'id'
-            $sql = "
+                // Trae todos los registros, aliasando la PK a 'id'
+                $sql = "
                 SELECT 
                     pk_id_persona AS id,
                     pers_nombre,
@@ -42,26 +39,27 @@ class ModeloRegistro {
                     DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
                 FROM {$tabla} 
                 ORDER BY pk_id_persona DESC
-            ";
+                ";
 
-            $stmt = Conexion::conectar()->prepare($sql);
-            $stmt->execute();
-            $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $stmt->closeCursor();
+                $stmt = Conexion::conectar()->prepare($sql);
+                $stmt->execute();
+                $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $stmt->closeCursor();
 
-            return $datos;
+                return $datos;
 
-        } else {
 
-            // Trae un solo registro filtrado
+        }else{
+
+
             $sql = "
                 SELECT 
-                    pk_id_persona AS id,
-                    pers_nombre,
-                    pers_telefono,
-                    pers_correo,
-                    pers_clave,
-                    DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
+                pk_id_persona AS id, 
+                pers_nombre, 
+                pers_telefono, 
+                pers_correo,  
+                pers_clave, 
+                DATE_FORMAT(pers_fecha_registro, '%d/%m/%Y') AS fecha 
                 FROM {$tabla} 
                 WHERE {$item} = :valor 
                 ORDER BY pk_id_persona DESC
@@ -75,10 +73,9 @@ class ModeloRegistro {
 
             return $dato;
         }
-
     }
 
-    /*=============================================
+ /*=============================================
     Actualizar Registros
     =============================================*/
 
@@ -92,16 +89,12 @@ class ModeloRegistro {
         $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
         if ($stmt->execute()) {
+            $stmt = null;
             return "ok";
         } else {
+            $stmt = null;
             return "error";
-        }
-
-        $stmt = null;
+        }        
     }
-
-
-
-    
 
 }
