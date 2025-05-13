@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
 		
 		<div class="container py-5">
@@ -30,7 +31,7 @@
                             
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fas fa-user"></i>
+                                    <i class="fa-solid fa-phone"></i>
                                 </span>
                             </div>
             
@@ -52,7 +53,7 @@
                                 </span>
                             </div>
             
-                            <input type="email" class="form-control" id="email" name="registroCorreo">
+                            <input type="email" class="form-control" id="email" name="registroEmail">
                         
                         </div>
                         
@@ -69,31 +70,34 @@
                                 </span>
                             </div>
             
-                            <input type="password" class="form-control" id="pwd" name="registroPassword">
+                            <input type="password" class="form-control" id="pwd" name="registroClave">
             
                         </div>
             
                     </div>
             
+
                     <?php
 
-                    /*=============================================
-                    FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
-                    =============================================*/
+                            /*=============================================
+                            FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
+                            =============================================*/
 
-                    $registro = ControladorRegistro::ctrRegistro();
+                            $registro = ControladorRegistro::ctrRegistro();
 
-                    if ($registro === 'ok') {
-                        // Aquí sí entra cuando el método devuelve "ok"
-                        echo '<script>
-                            if (window.history.replaceState) {
-                                window.history.replaceState(null, null, window.location.href);
+                            if ($registro === 'ok') {
+                                // Aquí sí entra cuando el método devuelve "ok"
+                                echo '<script>
+                                    if (window.history.replaceState) {
+                                        window.history.replaceState(null, null, window.location.href);
+                                    }
+                                </script>';
+                                echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
                             }
-                        </script>';
-                        echo '<div class="alert alert-success">El usuario ha sido registrado</div>';
-                    }
 
                     ?>
+
+                
                     <button type="submit" class="btn btn-primary">Enviar</button>
             
                 </form>

@@ -8,20 +8,23 @@ class ModeloRegistro {
     Registrar usuario
     =============================================*/
     static public function mdlRegistro($tabla, $datos){
-        
-        $sql = "INSERT INTO {$tabla} (pers_nombre, pers_telefono, pers_correo, pers_clave) VALUES (:nombre, :telefono, :correo, :clave)";
+        $sql = "INSERT INTO {$tabla} 
+                    (pers_nombre, pers_telefono, pers_correo, pers_clave) 
+                VALUES 
+                    (:nombre, :telefono, :correo, :clave)";
 
         $stmt = Conexion::conectar()->prepare($sql);
 
-        $stmt->bindParam(":nombre",   $datos["pers_nombre"],   PDO::PARAM_STR);
-        $stmt->bindParam(":telefono", $datos["pers_telefono"], PDO::PARAM_STR);
-        $stmt->bindParam(":correo",   $datos["pers_correo"],   PDO::PARAM_STR);
-        $stmt->bindParam(":clave",    $datos["pers_clave"],    PDO::PARAM_STR);
+        $stmt->bindParam(":nombre",   $datos["nombre"],   PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+        $stmt->bindParam(":correo",   $datos["correo"],   PDO::PARAM_STR);
+        $stmt->bindParam(":clave",    $datos["clave"],    PDO::PARAM_STR);
 
         $ok = $stmt->execute();
         $stmt->closeCursor();
         return $ok ? "ok" : "error";
     }
+
 
     static public function mdlSeleccionarRegistro($tabla, $item, $valor){
 
@@ -51,7 +54,6 @@ class ModeloRegistro {
 
         }else{
 
-
             $sql = "
                 SELECT 
                 pk_id_persona AS id, 
@@ -75,11 +77,7 @@ class ModeloRegistro {
         }
     }
 
- /*=============================================
-    Actualizar Registros
-    =============================================*/
-
-    public static function mdlActualizarRegistro($tabla, $datos) {
+  public static function mdlActualizarRegistro($tabla, $datos) {
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET pers_nombre = :nombre, pers_telefono = :telefono, pers_correo = :correo, pers_clave = :clave WHERE pk_id_persona = :id");
 
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
@@ -94,7 +92,31 @@ class ModeloRegistro {
         } else {
             $stmt = null;
             return "error";
-        }        
+        }
+
+        
     }
+
+
+    /**
+     * Elimina un registro de la base de datos
+     * @param string $tabla
+     * @param int $id
+     * @return string "ok" si se eliminó, "error" en caso contrario
+     */
+        public static function mdlEliminarRegistro($tabla, $id) {
+            $stmt = Conexion::conectar()->prepare(
+                "DELETE FROM {$tabla} WHERE pk_id_persona = :id"
+            );
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+            if ($stmt->execute()) {
+                return "ok";
+            } else {
+                return "error";
+            }
+        }
+
+
 
 }

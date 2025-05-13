@@ -58,16 +58,15 @@
                         
                     </div>
             
-           
                     <?php
 
                         /*=============================================
                         FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
                         =============================================*/
 
-                        $inventario = ControladorInventario::ctrInventario();
+                        $producto = ControladorProducto::ctrProducto();
 
-                        if ($inventario === 'ok') {
+                        if ($producto === 'ok') {
                             // Aquí sí entra cuando el método devuelve "ok"
                             echo '<script>
                                 if (window.history.replaceState) {
@@ -78,7 +77,6 @@
                         }
 
                         ?>
-
                 
                     <button type="submit" class="btn btn-primary">Guardar</button>
             
